@@ -5,6 +5,10 @@ import type { PaymentRequirement } from '@darkhorseone/x402-core';
  * Helper to build standardised Next.js responses for x402 events.
  */
 export class NextResponseBuilder {
+  static json(payload: unknown, status = 200, headers?: Record<string, string>): Response {
+    return NextResponse.json(payload, { status, headers }) as unknown as Response;
+  }
+
   static paymentRequired(requirement: PaymentRequirement): Response {
     return NextResponse.json(
       {

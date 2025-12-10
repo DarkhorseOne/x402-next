@@ -12,7 +12,7 @@
 - `npm install` — install dependencies; peer dep `next` should be provided by the host app.
 - Local x402-core (not published): run `npm install --no-save ../x402-core` or `npm link ../x402-core` before building/tests; remove/link-off when switching to a published version later.
 - `npm run build` — compile TypeScript to `dist/` via `tsc -p tsconfig.json`.
-- `npm test` — runs `vitest run` (no tests yet). Add unit tests before shipping behavior changes.
+- `npm test` — runs `vitest run` against the suites in `tests/`.
 
 ## Coding Style & Naming Conventions
 - TypeScript throughout; keep 2-space indentation and trailing commas as in existing files.
@@ -21,9 +21,9 @@
 - No formatter is enforced yet; if you add one (e.g., Prettier/ESLint), apply it consistently across the repo.
 
 ## Testing Guidelines
-- Framework not chosen yet; Vitest or Jest are both suitable. Place tests beside sources (e.g., `src/handlers/x402Route.test.ts`) or under a future `tests/` directory.
-- Cover the happy path (delegating when deps are absent), missing credential flow (402), and failed verification flow (402) for `x402Route`.
-- Add integration-style checks for `NextResponseBuilder` JSON shape/status codes.
+- Vitest is the active runner; tests live in `tests/`.
+- Cover happy path vs missing/invalid credentials (402) and network errors (503) for both routers.
+- Include adapter/response builder shape checks so headers/status/payloads stay stable.
 
 ## Commit & Pull Request Guidelines
 - Commit messages: short, imperative, and scoped (e.g., `add payment-required response builder`); keep related changes together.
