@@ -10,6 +10,7 @@
 ## Build, Test, and Development Commands
 - Minimum Next.js (CVE-2025-66478 patched): `15.0.5+` or `16.0.7+` (canary: `15.6.0-canary.58`, `16.1.0-canary.12`).
 - `npm install` — install dependencies; peer dep `next` should be provided by the host app.
+- Local x402-core (not published): run `npm install --no-save ../x402-core` or `npm link ../x402-core` before building/tests; remove/link-off when switching to a published version later.
 - `npm run build` — compile TypeScript to `dist/` via `tsc -p tsconfig.json`.
 - `npm test` — runs `vitest run` (no tests yet). Add unit tests before shipping behavior changes.
 
@@ -22,8 +23,7 @@
 ## Testing Guidelines
 - Framework not chosen yet; Vitest or Jest are both suitable. Place tests beside sources (e.g., `src/handlers/x402Route.test.ts`) or under a future `tests/` directory.
 - Cover the happy path (delegating when deps are absent), missing credential flow (402), and failed verification flow (402) for `x402Route`.
-- Add integration-style checks for `NextResponseBuilder` JSON shape/status codes. Keep tests deterministic; avoid network calls.
-- Update `npm test` to run the chosen test runner; gate PRs on it.
+- Add integration-style checks for `NextResponseBuilder` JSON shape/status codes.
 
 ## Commit & Pull Request Guidelines
 - Commit messages: short, imperative, and scoped (e.g., `add payment-required response builder`); keep related changes together.

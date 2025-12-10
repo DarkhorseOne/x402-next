@@ -20,6 +20,6 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@darkhorseone/x402-core": "^0.1.0"
+    "@darkhorseone/x402-core": "^1.0.0"
   }
 }
