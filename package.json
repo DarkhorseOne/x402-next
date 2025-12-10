@@ -1,0 +1,19 @@
+{
+  "name": "@darkhorseone/x402-next",
+  "version": "0.1.0",
+  "description": "Next.js adapter for the DarkhorseOne x402 HTTP payment middleware.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"No tests implemented yet\""
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "next": "^14.0.0 || ^15.0.0"
+  },
+  "dependencies": {
+    "@darkhorseone/x402-core": "^0.1.0"
+  }
+}
